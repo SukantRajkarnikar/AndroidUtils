@@ -4,17 +4,19 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.evolve.databinding.ActivityImageBinding
 import com.evolve.rosiautils.ImageListenerNullException
 import com.evolve.rosiautils.ImagePathNullException
 import com.evolve.rosiautils.PictureManager2
 import com.evolve.rosiautils.TYPE_ERROR
 import com.evolve.rosiautils.loadImage
 import com.evolve.rosiautils.showToast
-import kotlinx.android.synthetic.main.activity_image.*
+
 
 class ImageActivity : AppCompatActivity() {
 
     private lateinit var pictureManager: PictureManager2
+    private lateinit var binding: ActivityImageBinding
 
     companion object {
         fun getIntent(context: Context) = Intent(context, ImageActivity::class.java)
@@ -22,10 +24,11 @@ class ImageActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_image)
+        binding = ActivityImageBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         pictureManager = PictureManager2(this)
 
-        btn_take_photo.setOnClickListener {
+        binding.btnTakePhoto.setOnClickListener {
             if (pictureManager.hasPermission()) {
                 openCamera()
             }
@@ -70,7 +73,7 @@ class ImageActivity : AppCompatActivity() {
 
     private fun getImageListener(): (String) -> Unit {
         return { imgPath ->
-            loadImage(image, imgPath)
+            loadImage(binding.image, imgPath)
         }
     }
 }

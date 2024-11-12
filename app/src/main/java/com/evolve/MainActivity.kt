@@ -6,24 +6,26 @@ import android.os.Build
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.evolve.databinding.ActivityMainBinding
 import com.evolve.rosiautils.*
 import com.evolve.rosiautils.dialog.DialogBuilder
 import com.evolve.rosiautils.dialog.DialogProvider
 import com.evolve.rosiautils.biometric.BioMetricManager
 import com.evolve.rosiautils.biometric.BiometricCryptoObject
-import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), BioMetricManager.BiometricCallback {
 
     private lateinit var dialogBuilder: DialogBuilder
     private var bioMetricManager: BioMetricManager?=null
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         bioMetricManager = BioMetricManager.getInstance(this)
         bioMetricManager?.setCallback(this)
 
-        btn_connect.setOnClickListener {
+        binding.btnConnect.setOnClickListener {
             if (checkNetworkAvailability(this))
                 showToast("Connected to network", TYPE_SUCCESS)
             else
@@ -31,23 +33,23 @@ class MainActivity : AppCompatActivity(), BioMetricManager.BiometricCallback {
 
         }
 
-        btn_take_photo.setOnClickListener {
+        binding.btnTakePhoto.setOnClickListener {
             startActivity(ImageActivity.getIntent(this))
         }
 
-        btn_show_dialog.setOnClickListener { showDialog() }
+        binding.btnShowDialog.setOnClickListener { showDialog() }
 
-        btn_show_pie.setOnClickListener {
+        binding.btnShowPie.setOnClickListener {
             startActivity(PieActivity.getIntent(this))
 
         }
 
-        btn_date_time.setOnClickListener {
+        binding.btnDateTime.setOnClickListener {
             startActivity(DateTimePickerActivity.getIntent(this))
 
         }
 
-        btn_show_biometric.setOnClickListener {
+        binding.btnShowBiometric.setOnClickListener {
             initBiometric()
         }
     }

@@ -4,21 +4,22 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_date_time_picker.*
+import com.evolve.databinding.ActivityDateTimePickerBinding
 
 class DateTimePickerActivity : AppCompatActivity() {
-
+private lateinit var binding: ActivityDateTimePickerBinding;
     companion object {
         fun getIntent(context: Context) = Intent(context, DateTimePickerActivity::class.java)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_date_time_picker)
-        date_selection_view2.setAllOwToPickPastDate(true)
-        btn_reset_date.setOnClickListener {
-            date_selection_view2.resetToCurrentDate()
+        binding = ActivityDateTimePickerBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        binding.dateSelectionView2.setAllOwToPickPastDate(true)
+        binding.btnResetDate.setOnClickListener {
+            binding.dateSelectionView2.resetToCurrentDate()
         }
-        time_selection_view2.setMinMaxTime(true, 9, 17)
+        binding.timeSelectionView2.setMinMaxTime(true, 9, 17)
     }
 }

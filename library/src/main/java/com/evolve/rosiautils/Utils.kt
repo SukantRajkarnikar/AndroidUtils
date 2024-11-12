@@ -22,7 +22,6 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
 import com.evolve.GlideApp
-import com.valdesekamdem.library.mdtoast.MDToast
 import java.text.SimpleDateFormat
 import java.util.*
 
