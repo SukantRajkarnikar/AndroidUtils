@@ -21,7 +21,6 @@ import com.bumptech.glide.load.resource.bitmap.Rotate
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
-import com.evolve.GlideApp
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -94,7 +93,7 @@ fun loadImage(imageView: ImageView, path: String?) {
         Glide.with(imageView.context).load(path).into(imageView)
         return
     }
-    GlideApp.with(imageView.context)
+    Glide.with(imageView.context)
         .asBitmap()
         .load(path).into(imageView)
 }

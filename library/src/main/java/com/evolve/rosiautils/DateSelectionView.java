@@ -34,14 +34,14 @@ public class DateSelectionView extends AppCompatEditText {
     }
 
     public DateSelectionView(Context context, AttributeSet attrs) {
-        super(context, attrs, R.attr.editTextStyle);
+        super(context, attrs);
         obtainStyledAttributes(context, attrs, 0);
         init(attrs, context);
 
     }
 
     public DateSelectionView(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, R.attr.editTextStyle);
+        super(context, attrs);
         obtainStyledAttributes(context, attrs, defStyleAttr);
         init(attrs, context);
     }

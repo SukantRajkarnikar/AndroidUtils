@@ -18,7 +18,7 @@ import androidx.annotation.DrawableRes;
 import androidx.annotation.StringRes;
 import androidx.core.content.ContextCompat;
 
-public class MDToast extends Toast {
+class MDToast extends Toast {
 
     public static final int TYPE_INFO = 0;
     public static final int TYPE_SUCCESS = 1;
