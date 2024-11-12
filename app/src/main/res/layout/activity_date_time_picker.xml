@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.evolve.DateTimePickerActivity">
+
+    <com.evolve.rosiautils.TimeSelectionView
+        android:id="@+id/date_selection_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/mm_dd_yyyy"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <com.evolve.rosiautils.TimeSelectionView
+        android:id="@+id/timeSelectionView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/hh_mm"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/date_selection_view" />
+
+    <com.evolve.rosiautils.DateSelectionView
+        android:id="@+id/date_selection_view2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/mm_dd_yyyy"
+        app:customDrawable="@drawable/ic_notification_compat"
+        app:displayDrawable="true"
+        style="@style/edit_text_style_order"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/timeSelectionView"/>
+
+    <Button
+        android:id="@+id/btn_reset_date"
+        android:layout_width="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="Reset Date"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"/>
+
+    <com.evolve.rosiautils.TimeSelectionView
+        android:id="@+id/time_selection_view2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/hh_mm"
+        app:customDrawable="@drawable/ic_notification_compat"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/date_selection_view2"/>
+
+</LinearLayout>
